@@ -1,0 +1,6 @@
+# Kopier til overrides.csv for at overstyre PARAM_ROWS i build_enclosure.py.
+# Linjer der starter med # ignoreres. Ukendte nøgler stopper bygningen.
+#
+# key,value
+# garmin_clearance,0.15
+# insert_hole_d,4.2

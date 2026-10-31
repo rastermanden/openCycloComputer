@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+*.FCBak
+*.FCStd1
+*~
+.DS_Store
