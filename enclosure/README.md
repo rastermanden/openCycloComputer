@@ -173,3 +173,15 @@ Tappens underside er et udhæng på omkring 3 mm. Uden support bliver låseflade
 6. Polycarbonat i falsen, limet med klar silikone eller UV-lim. Membranen over vent-hullet, så hætten. Holderen på låget med to M3-skruer og møtrikker i lommerne.
 
 Bruser-testen af hele kabinettet hører til milepæl M8, ikke til det første print. En utæt kupon skal ikke gentages i fuld størrelse.
+
+## Slicing from the command line (Bambu Studio CLI)
+
+`tools/slice.sh` slices STL files headless for the P1S with Bambu Studio's CLI, so it works over SSH and from scripts:
+
+```bash
+tools/slice.sh enclosure/stl/case_lid.stl enclosure/stl/garmin_mount.stl
+```
+
+Defaults: Bambu PETG HF, 0.20 mm Standard, Textured PEI Plate, P1S 0.4 mm nozzle. Output goes to `build/slice/*.gcode.3mf` (ignored by git) with time and grams printed per part. Override with `FILAMENT=`, `PROCESS=`, `PLATE=`, `PRINTER=`, `OUT=`.
+
+The CLI falls back to PLA when a filament preset inherits from parents it can't resolve, so `tools/bambu_presets.py` flattens the system presets first. Bambu Studio must have been opened once so the system presets are downloaded to `~/.config/BambuStudio/system/BBL`.
